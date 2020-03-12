@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'Connor的博客',
+    title: 'Connor的博客!',
     description: '个人博客',
     head: [
         ['link', {
@@ -11,7 +11,6 @@ module.exports = {
 	markdown: {
 		lineNumbers:true
 	},
-    dest: './docs/.vuepress/dist',
     ga: '',
     evergreen: true,
 }
