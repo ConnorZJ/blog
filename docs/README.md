@@ -1,12 +1,13 @@
 ---
 home: true
-heroImage: /111.png
+heroImage: /slump.png
 heroImageStyle: {
   maxWidth: '600px',
   width: '100%',
   display: block,
   margin: '9rem auto 2rem',
   background: '#fff',
+  background-image: url(/background.jpg),
   borderRadius: '1rem',
 }
 bgImageStyle: {

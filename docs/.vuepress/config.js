@@ -1,13 +1,13 @@
 module.exports = {
   "title": "Connor的博客",
-  "description": "个人博客",
+  "description": "Nothing Is True, Everything is Permitted",
   "base": '/blog/',
   "head": [
     [
       "link",
       {
         "rel": "icon",
-        "href": "/favicon.ico"
+        "href": "/bear.ico"
       }
     ],
     [
@@ -68,7 +68,6 @@ module.exports = {
         "link": "https://vuepress-theme-reco.recoluan.com"
       }
     ],*/
-    "logo": "/111.png",
     "search": true,
     "searchMaxSuggestions": 10,
     "sidebar": "auto",
