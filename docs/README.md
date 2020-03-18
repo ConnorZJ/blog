@@ -6,7 +6,6 @@ heroImageStyle: {
   width: '100%',
   display: block,
   margin: '9rem auto 2rem',
-  background: '#fff',
   background-image: url(/background.jpg),
   borderRadius: '1rem',
 }
