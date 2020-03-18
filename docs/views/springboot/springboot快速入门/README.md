@@ -25,7 +25,7 @@ spring boot项目可以通过以下几种方式搭建
 
 ### 2. idea构建
 使用idea构建spring boot项目同样很方便快速，在idea中new project，左边选择Spring Initializr，右边选择JDK，下面让你选择Service URL，默认的正好就是第一种构建方式的访问地址，可以想象得到，idea其实也是通过第一种方式创建spring boot项目的。
-![image](../../../.vuepress/public/springboot/idea-1.png)
+![image](../../../.vuepress/public/springboot/idea1.png)
 点击next就到下一步，输入项目的元数据
 ![image](../../../.vuepress/public/springboot/idea2.png)
 再点击next，就到了选择依赖的地方，还能选择spring boot的版本号，之后再finish
