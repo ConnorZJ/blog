@@ -10,7 +10,7 @@ heroImageStyle: {
 }
 bgImageStyle: {
   height: '600px',
-  background-image: 'url(/background.jpg)'
+  background-image: 'url(bg/background.jpg)'
 }
 isShowTitleInHome: false
 ---

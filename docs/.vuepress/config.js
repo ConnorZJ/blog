@@ -69,5 +69,6 @@ module.exports = {
   },
   "markdown": {
     "lineNumbers": true
-  }
+  },
+  plugins: ['cursor-effects','@vuepress-reco/vuepress-plugin-kan-ban-niang']
 }
