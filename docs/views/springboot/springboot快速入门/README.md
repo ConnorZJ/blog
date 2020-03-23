@@ -8,8 +8,8 @@ categories:
 ---
 
 
-# 快速入门
-## 构建方式
+## 快速入门
+### 构建方式
 spring boot项目可以通过以下几种方式搭建
 - 在spring boot网站通过maven构建下载一个压缩包，导入至IDE中
 - 使用idea快速搭建出一个spring boot项目
@@ -17,13 +17,13 @@ spring boot项目可以通过以下几种方式搭建
 
 这里展示两种搭建spring boot项目的方式
 
-### 1.maven构建
+#### 1.maven构建
 首先访问[https://start.spring.io/](https://start.spring.io/)，project选择Maven Project，language选择Java，spring boot版本选择默认版本，项目元数据根据自己的需要填写，比如packaging方式是Jar还是War，JDK版本是8或以上等，构建方式是Maven，所以可以在dependencies中选择要依赖的东西，详细细节可以参考下图
 ![image](../../../.vuepress/public/springboot/springboot-io.png)
 信息填写完成后，点击绿色的Generate，或者快捷键Ctrl+回车即可下载压缩包，解压之后用IDE将文件夹通过引入Maven项目的方式引入即可。
 
 
-### 2. idea构建
+#### 2. idea构建
 使用idea构建spring boot项目同样很方便快速，在idea中new project，左边选择Spring Initializr，右边选择JDK，下面让你选择Service URL，默认的正好就是第一种构建方式的访问地址，可以想象得到，idea其实也是通过第一种方式创建spring boot项目的。
 ![image](../../../.vuepress/public/springboot/idea1.png)
 点击next就到下一步，输入项目的元数据
@@ -34,7 +34,7 @@ spring boot项目可以通过以下几种方式搭建
 
 
 
-## 项目结构介绍
+### 项目结构介绍
 如一般的Maven/SSM工程一样，项目目录中分别含有java、resources、test的文件夹，分别用以存放Java文件、配置文件和测试文件，还有着pom.xml，但却缺少了web.xml文件和applicationContext.properties等文件，这是为什么呢？
 
 > spring boot遵循着约定优于配置的理念，特点是简单、快速和便捷。spring boot提供了一系列的Starter依赖来简化jar包的配置。
@@ -43,7 +43,7 @@ spring boot项目可以通过以下几种方式搭建
 
 src/main/java/org.connor.springbootdemo.controller
 
-##### Ps:controller的package目录要和SpringbootDemoApplication在同一级
+###### Ps:controller的package目录要和SpringbootDemoApplication在同一级
 
 ``` Java
 package org.connor.springbootdemo.controller;

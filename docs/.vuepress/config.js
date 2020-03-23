@@ -1,5 +1,5 @@
 module.exports = {
-  "title": "Connor的博客",
+  "title": "CCCCCConnor",
   "description": "Nothing Is True, Everything is Permitted",
   "base": '/blog/',
   "head": [
@@ -54,27 +54,18 @@ module.exports = {
         "text": "Tag"
       }
     },
-    /*"friendLink": [
-      {
-        "title": "午后南杂",
-        "desc": "Enjoy when you can, and endure when you must.",
-        "email": "1156743527@qq.com",
-        "link": "https://www.recoluan.com"
-      },
-      {
-        "title": "vuepress-theme-reco",
-        "desc": "A simple and beautiful vuepress Blog & Doc theme.",
-        "avatar": "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
-        "link": "https://vuepress-theme-reco.recoluan.com"
-      }
-    ],*/
     "search": true,
     "searchMaxSuggestions": 10,
     "sidebar": "auto",
     "lastUpdated": "Last Updated",
     "author": "Xiong ZiJie",
     "authorAvatar": "/avatar.png",
-    "startYear": "2019"
+    "startYear": "2019",
+    themePicker: {
+      colorName1: 'red',
+      colorName2: 'yellow',
+      colorName3: 'blue'
+    }
   },
   "markdown": {
     "lineNumbers": true
