@@ -19,6 +19,6 @@ git commit -m 'deploy'
 # 如果你想要部署到 https://USERNAME.github.io
 git push -f git@gitee.com:connorZJ/blog.git master
 
-git push -f git@github.com:ConnorZJ/ConnorZJ.github.io.git master
+git push -f git@github.com:ConnorZJ/blog.git master:gh-pages
 
 cd -
