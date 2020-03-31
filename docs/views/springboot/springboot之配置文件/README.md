@@ -60,13 +60,13 @@ public class Person {
 
 3. 在controller中注入Person类，将person打印出来，看看是否能注入属性成功
 
-![image-20200331221247939](C:\Users\10203\Pictures\博客图片1\image-20200331221247939-1585670056000.png)
+![image-20200331221247939](../../../.vuepress/public/springboot/image-20200331221247939.png)
 
-![image-20200331221611148](C:\Users\10203\Pictures\博客图片1\image-20200331221611148-1585670051188.png)
+![image-20200331221611148](../../../.vuepress/public/springboot/image-20200331221611148.png)
 
 这里能看得到，person的属性通过properties注入成功了，但是中文出现了乱码，只要在setting中把项目的编码设置成utf-8，把*Transparent native-to-ascii conversion*前面的勾勾上，再重新编辑一下properties文件即可显示正确的字符了。
 
-![image-20200331231211034](C:\Users\10203\Pictures\博客图片1\image-20200331231211034-1585670044758.png)
+![image-20200331231211034](../../../.vuepress/public/springboot/image-20200331231211034.png)
 
 ### 其他方式注入
 
@@ -74,7 +74,7 @@ public class Person {
 
 所以这个时候介绍另一种注入的方式，首先将JavaBean中的@Value注解全都去掉，而在类名上增加一个注解@ConfigurationProperties
 
-![image-20200331232254800](C:\Users\10203\Pictures\博客图片1\image-20200331232254800-1585670039516.png)
+![image-20200331232254800](../../../.vuepress/public/springboot/image-20200331232254800.png)
 
 可以看到，这个注解的参数中，有一个prefix，顾名思义，是去properties中寻找以person为前缀的属性，注入到JavaBean中去。
 
@@ -99,7 +99,7 @@ server:
     context-path: /connor
 ```
 
-![image-20200331234454804](C:\gitee-blog\docs\.vuepress\public\springboot\image-20200331234454804.png)
+![image-20200331234454804](../../../.vuepress/public/springboot/image-20200331234454804.png)
 
 启动项目之后，就能看到项目的端口号改变了，项目的context-path路径也改变了。
 
@@ -134,7 +134,7 @@ public class Cluster {
 
 然后在controller中注入这个类，并打印出这个对象
 
-![image-20200331235230413](C:\Users\10203\Pictures\博客图片1\image-20200331235230413-1585670025497.png)
+![image-20200331235230413](../../../.vuepress/public/springboot/image-20200331235230413.png)
 
 所以，yaml配置能够注入一个数组/集合，同时也是保持有序的方式注入。
 
