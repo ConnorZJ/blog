@@ -138,3 +138,47 @@ public class Cluster {
 
 所以，yaml配置能够注入一个数组/集合，同时也是保持有序的方式注入。
 
+## 配置文件优先级
+
+### 哪种文件优先级高
+
+如果说，我在项目路径下，同时存在着两种配置文件，分别是application.properties和application.yml，且每个文件的内容不一样，那么springboot项目启动之后，将会使用哪一个配置呢？
+
+带着这个问题，我同时创建了这两个文件，且让其中的内容不一致
+
+```properties
+server.port=8081
+server.servlet.context-path=/properties
+```
+
+```yaml
+server:
+  port: 8082
+  servlet:
+    context-path: /yml
+```
+
+在properties中设置端口为8081，路径为properties，在yaml文件里设置端口为8082，路径为yml，接下来，就到了启动项目的时候了
+
+![image-20200402234512731](../../../.vuepress/public/springboot/image-20200402234512731.png)
+
+项目启动后，可以看到，Tomcat的端口被设置成了8081，路径为properties，这样一来，就知道了在项目启动的时候，会去调用properties的配置了。
+
+**但是结果果真如此吗？**
+
+在yml中，继续添加如下代码，再重新启动项目，将cluster对象打印出来
+
+```yaml
+cluster:
+  hosts:
+    - 192.168.0.1
+    - 192.168.0.2
+    - 192.168.0.3
+```
+
+![image-20200402235157255](../../../.vuepress/public/springboot/image-20200402235157255.png)
+
+通过控制台打印可以看到，端口是8081没错，使用的是**properties**的配置，但同时还能打印出Cluster对象的属性，这个是由**yml**配置的。
+
+至此能够得出一个结论：**在properties和yml配置文件同时存在的时候，项目会将这两个配置同时加载进去，但是properties的优先级比yml高，所以不同的文件下的相同的配置，优先级高的会覆盖掉优先级低的。**
+
