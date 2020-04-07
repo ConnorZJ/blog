@@ -184,5 +184,54 @@ cluster:
 
 ## 配置文件位置问题
 
-### 配置问价那应该放在哪里呢
+### 配置文件那应该放在哪里呢
 
+springboot配置文件可以放在一下四个地方
+
+![image-20200407213856326](../../../.vuepress/public/springboot/image-20200407213856326.png)
+
+在这几个地方放配置文件，即可用于springboot项目使用
+
+### 哪个地方的优先级高呢
+
+既然能放在多个地方，那么，很明显的问题就出现在了脑海中，假如我这四个文件都存在，那项目启动的时候优先加载哪里地方得配置文件呢？
+
+于是我分别在这四个不同的地方，创建四个application.properties文件，然后在文件内容里面设置一个name的属性，在项目启动后，将这个name属性注入到对象中，并且打印出来，就知道哪一个优先级高，哪一个优先级低了。
+
+而且打印第一个文件位置之后，将那个文件移除掉，继续重启项目，这样就能有了一个比较直观的感受——能够知道加载的顺序！
+
+所以下面进行测试，打印出的顺序如下：
+
+```properties
+project/config/application.properties
+```
+
+```properties
+project/application.properties
+```
+
+```properties
+classpath/config/application.properties
+```
+
+```properties
+classpath/application.properties
+```
+
+从以上结果，我们能够知道不同地方的配置文件的优先级哪一个高了！
+
+### 自定义配置文件位置
+
+既然不同的位置的优先级不同，那么又有一个疑问了，如果我想指定一个位置的配置生效，这该怎么做呢？
+
+其实这种情况，我们可以通过命令行的方式指定某个配置文件，比如：
+
+```bash
+java -jar springboot-demo.jar --spring.config.location=classpath:/application.properties
+```
+
+如果在IDEA中启动项目的话，可以在配置启动参数的地方加上一个启动命令
+
+![image-20200407215521417](../../../.vuepress/public/springboot/image-20200407215521417.png)
+
+这样就能通过自定义的配置文件来启动项目了。
