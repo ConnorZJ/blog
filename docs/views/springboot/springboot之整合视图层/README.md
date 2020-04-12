@@ -5,6 +5,7 @@ tags:
  - spring boot
 categories:
  - spring boot
+
 ---
 
 # spring boot整合视图层
@@ -27,7 +28,7 @@ FreeMarker 是一款 *模板引擎*： 即一种基于模板和要改变的数�
 
 在创建springboot项目的时候，勾选web和freemarker的依赖
 
-![image-20200408215424281](../../../.vuepress/public/springboot/image-20200408215424281.png)
+![image-20200408215424281](http://qiniuyun.zijie.fun/image-20200408215424281.png)
 
 创建成功后，在pom中主要是用到了两个依赖
 
@@ -46,7 +47,7 @@ FreeMarker在springboot中自动化配置生效主要靠FreeMarkerAutoConfigurat
 
 我们这个项目很明显是一个servlet web项目，点击**FreeMarkerServletWebConfiguration**类看里面的源码，可以看到他的构造方法里，set进去了一个**FreeMarkerProperties**的对象，打开这个对象一看：
 
-![image-20200408222859955](../../../.vuepress/public/springboot/image-20200408222859955.png)
+![image-20200408222859955](http://qiniuyun.zijie.fun/image-20200408222859955.png)
 
 就能够恍然大悟，配置都是在这里写好了的：
 
@@ -64,18 +65,19 @@ FreeMarker在springboot中自动化配置生效主要靠FreeMarkerAutoConfigurat
 
 1. 首先创建一个bean，给他一些属性，用于在页面上显示
 
-   ![image-20200408223650676](../../../.vuepress/public/springboot/image-20200408223650676.png)
+   ![image-20200408223650676](http://qiniuyun.zijie.fun/image-20200408223650676.png)
 
 2. 接下来创建一个controller，并在里面创建若干个Person对象，给每一个对象赋值，并将其加到Model里面，以便能够返回到页面上
 
-   ![image-20200408224310100](../../../.vuepress/public/springboot/image-20200408224310100.png)
+   ![image-20200408224310100](http://qiniuyun.zijie.fun/image-20200408224310100.png)
 
 3. 接下来就到了重头戏了，在templates文件夹下创建模板文件---person.ftlh
 
-   ![image-20200408225848639](../../../.vuepress/public/springboot/image-20200408225848639.png)
+   ![image-20200408225848639](http://qiniuyun.zijie.fun/image-20200408225848639.png)
 
    在freemarker里面，使用#list的标签可以循环对象，在里面使用EL表达式，取出对象里的值
 
 4. 更多的freemarker标签可以 [点击此处](http://freemarker.foofun.cn/dgui.html)
 
 ## 更多配置
+

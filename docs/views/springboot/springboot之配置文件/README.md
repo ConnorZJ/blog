@@ -60,13 +60,13 @@ public class Person {
 
 3. 在controller中注入Person类，将person打印出来，看看是否能注入属性成功
 
-![image-20200331221247939](../../../.vuepress/public/springboot/image-20200331221247939.png)
+![image-20200331221247939](http://qiniuyun.zijie.fun/image-20200331221247939.png)
 
-![image-20200331221611148](../../../.vuepress/public/springboot/image-20200331221611148.png)
+![image-20200331221611148](http://qiniuyun.zijie.fun/image-20200331221611148.png)
 
 这里能看得到，person的属性通过properties注入成功了，但是中文出现了乱码，只要在setting中把项目的编码设置成utf-8，把*Transparent native-to-ascii conversion*前面的勾勾上，再重新编辑一下properties文件即可显示正确的字符了。
 
-![image-20200331231211034](../../../.vuepress/public/springboot/image-20200331231211034.png)
+![image-20200331231211034](http://qiniuyun.zijie.fun/image-20200331231211034.png)
 
 ### 其他方式注入
 
@@ -74,7 +74,7 @@ public class Person {
 
 所以这个时候介绍另一种注入的方式，首先将JavaBean中的@Value注解全都去掉，而在类名上增加一个注解@ConfigurationProperties
 
-![image-20200331232254800](../../../.vuepress/public/springboot/image-20200331232254800.png)
+![image-20200331232254800](http://qiniuyun.zijie.fun/image-20200331232254800.png)
 
 可以看到，这个注解的参数中，有一个prefix，顾名思义，是去properties中寻找以person为前缀的属性，注入到JavaBean中去。
 
@@ -99,7 +99,7 @@ server:
     context-path: /connor
 ```
 
-![image-20200331234454804](../../../.vuepress/public/springboot/image-20200331234454804.png)
+![image-20200331234454804](http://qiniuyun.zijie.fun/image-20200331234454804.png)
 
 启动项目之后，就能看到项目的端口号改变了，项目的context-path路径也改变了。
 
@@ -134,7 +134,7 @@ public class Cluster {
 
 然后在controller中注入这个类，并打印出这个对象
 
-![image-20200331235230413](../../../.vuepress/public/springboot/image-20200331235230413.png)
+![image-20200331235230413](http://qiniuyun.zijie.fun/image-20200331235230413.png)
 
 所以，yaml配置能够注入一个数组/集合，同时也是保持有序的方式注入。
 
@@ -160,7 +160,7 @@ server:
 
 在properties中设置端口为8081，路径为properties，在yaml文件里设置端口为8082，路径为yml，接下来，就到了启动项目的时候了
 
-![image-20200402234512731](../../../.vuepress/public/springboot/image-20200402234512731.png)
+![image-20200402234512731](http://qiniuyun.zijie.fun/image-20200402234512731.png)
 
 项目启动后，可以看到，Tomcat的端口被设置成了8081，路径为properties，这样一来，就知道了在项目启动的时候，会去调用properties的配置了。
 
@@ -176,7 +176,7 @@ cluster:
     - 192.168.0.3
 ```
 
-![image-20200402235157255](../../../.vuepress/public/springboot/image-20200402235157255.png)
+![image-20200402235157255](http://qiniuyun.zijie.fun/image-20200402235157255.png)
 
 通过控制台打印可以看到，端口是8081没错，使用的是**properties**的配置，但同时还能打印出Cluster对象的属性，这个是由**yml**配置的。
 
@@ -188,7 +188,7 @@ cluster:
 
 springboot配置文件可以放在一下四个地方
 
-![image-20200407213856326](../../../.vuepress/public/springboot/image-20200407213856326.png)
+![image-20200407213856326](http://qiniuyun.zijie.fun/image-20200407213856326.png)
 
 在这几个地方放配置文件，即可用于springboot项目使用
 
@@ -232,6 +232,6 @@ java -jar springboot-demo.jar --spring.config.location=classpath:/application.pr
 
 如果在IDEA中启动项目的话，可以在配置启动参数的地方加上一个启动命令
 
-![image-20200407215521417](../../../.vuepress/public/springboot/image-20200407215521417.png)
+![image-20200407215521417](http://qiniuyun.zijie.fun/image-20200407215521417.png)
 
 这样就能通过自定义的配置文件来启动项目了。
