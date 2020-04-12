@@ -191,9 +191,71 @@ public class JsonMvcConfig {
 </dependency>
 ```
 
-将jackson的依赖排除掉，并引入gson依赖，可以看到gson没有版本号，这时因为springboot-start以及集成了gson
+将jackson的依赖排除掉，并引入gson依赖，可以看到gson没有版本号，这时因为springboot-start已经集成了gson
 
+通过以上配置，则在项目中classpath里提供了默认的Gson的bean，所以就能直接用了，打印结果如下
 
+![](http://qiniuyun.zijie.fun/20200412234500.png)
+
+要自定义格式的话，也如同Jackson一样，提供一个自定义的**GsonHttpMessageConverter**的bean，详细配置如下：
+
+```java
+@Configuration
+public class JsonMvcConfig {
+    @Bean
+    GsonHttpMessageConverter gsonHttpMessageConverter() {
+        GsonHttpMessageConverter gsonHttpMessageConverter = new GsonHttpMessageConverter();
+        Gson gson = new Gson().newBuilder().setDateFormat("yyyy-MM-dd").create();
+        gsonHttpMessageConverter.setGson(gson);
+        return gsonHttpMessageConverter;
+    }
+}
+```
+
+接下来测试一下效果
+
+![](http://qiniuyun.zijie.fun/20200412235257.png)
+
+这样就生效了，所以使用Gson也是非常方便的！
 
 ### fastjson的使用
+
+为什么要使用fastjson呢？
+
+看名字其实就看得出来，那就是-fast(快)，而且这个库还是**国产**的，当然要支持支持啦~
+
+话不多说直接开撸，首先在pom中引入相关依赖
+
+```xml
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>fastjson</artifactId>
+    <version>1.2.68</version>
+</dependency>
+```
+
+像前两种使用方式一样，在配置中提供一个**FastJsonHttpMessageConverter**的bean，然后类似的配置一配！下面是配置和效果图
+
+```java
+@Configuration
+public class JsonMvcConfig {
+    @Bean
+    FastJsonHttpMessageConverter fastJsonHttpMessageConverter() {
+        FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
+        FastJsonConfig config = new FastJsonConfig();
+        config.setDateFormat("yyyy&MM&dd");
+        fastJsonHttpMessageConverter.setFastJsonConfig(config);
+        return fastJsonHttpMessageConverter;
+    }
+}
+```
+
+![](http://qiniuyun.zijie.fun/20200413000345.png)
+
+发现这个是乱码，于是在application.properties中加上这么个两句就可以了
+
+```properties
+spring.http.encoding.charset=utf-8
+spring.http.encoding.force=true
+```
 
