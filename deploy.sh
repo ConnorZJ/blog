@@ -21,4 +21,6 @@ git push -f git@gitee.com:connorZJ/blog.git master
 
 git push -f git@github.com:ConnorZJ/blog.git master:gh-pages
 
+git push -f git@github.com:ConnorZJ/ConnorZJ.github.io.git master
+
 cd -
