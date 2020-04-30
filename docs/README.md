@@ -9,7 +9,7 @@ heroImageStyle: {
   borderRadius: '1rem',
 }
 bgImageStyle: {
-  height: '600px',
+  height: '100%',
   background-image: 'url(bg/background.jpg)'
 }
 isShowTitleInHome: false
